@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s15-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s15 { position: absolute; inset: 0; }
+  #s15-fade { position: absolute; inset: 0; }
+
+      #s15 .c{position:absolute}
+    
+</style>
+<div id="s15" data-composition-id="s15" data-width="1920" data-height="1080" data-duration="8.95">
+  <div class="pg-scene" id="s15-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s15-oa"></span><span class="pg-orb b" id="s15-ob"></span><span class="pg-orb c" id="s15-oc"></span><div class="pg-grain"></div></div>
+<div class="device" id="s15-dev" style="left:330px;top:150px;width:1260px;height:753px;"><div class="device-bar"><i></i><i></i><i></i></div><div style="position:absolute;left:0;right:0;top:44px;bottom:0;overflow:hidden"><div class="device-inner" id="s15-zoom"><video id="s15-v0" class="clip" src="assets/footage/account-change.mp4" muted playsinline data-start="0.00" data-duration="99.00" data-media-start="3.60" data-track-index="2" data-playback-rate="2.0"></video></div></div></div>
+      <div class="c chip" id="s15-c1" style="left:110px;top:60px">you confirm it yourself</div>
+      <div class="c chip" id="s15-c2" style="left:760px;top:60px">old approval: superseded</div>
+      <div class="c pill-green" id="s15-c3" style="left:1370px;top:66px">paid to the new account</div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s15 ";
+  const V = 0.75;   // voice starts
+  const D = 4.096; // voice duration
+  const DUR = 8.946;
+  const root = document.getElementById("s15");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s15-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s15-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s15-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s15-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s15-dev",{opacity:0,scale:.95},{opacity:1,scale:1,duration:.8,ease:"power3.out"},0.15);
+      tl.fromTo(S+"#s15-zoom",{scale:1.2,y:120},{scale:1.2,y:-60,duration:8,ease:"power1.inOut"},0.3);
+      tl.fromTo(S+"#s15-c1",{opacity:0,y:-20},{opacity:1,y:0,duration:.5,ease:"back.out(1.6)"},V+1.4);
+      tl.fromTo(S+"#s15-c2",{opacity:0,y:-20},{opacity:1,y:0,duration:.5,ease:"back.out(1.6)"},V+2.6);
+      tl.fromTo(S+"#s15-c3",{opacity:0,y:-20},{opacity:1,y:0,duration:.5,ease:"back.out(1.6)"},V+5.4);
+    
+  window.__timelines["s15"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

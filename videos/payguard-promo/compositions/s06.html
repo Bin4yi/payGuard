@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s06-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s06 { position: absolute; inset: 0; }
+  #s06-fade { position: absolute; inset: 0; }
+
+      #s06 .ringwrap{position:absolute;left:1180px;top:130px;width:560px;height:560px;border-radius:50%;display:grid;place-items:center}
+      #s06 svg.ring{position:absolute;inset:60px;width:440px;height:440px;transform:rotate(-90deg)}
+      #s06 .ring circle{fill:none;stroke-width:22;stroke-linecap:round}
+      #s06 .t{font-weight:900;font-size:120px;letter-spacing:-.04em}
+      #s06 .chips{position:absolute;left:1110px;top:760px;width:720px;display:flex;flex-wrap:wrap;gap:22px}
+      #s06 .lbl{position:absolute;left:130px;top:110px}
+    
+</style>
+<div id="s06" data-composition-id="s06" data-width="1920" data-height="1080" data-duration="7.70">
+  <div class="pg-scene" id="s06-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s06-oa"></span><span class="pg-orb b" id="s06-ob"></span><span class="pg-orb c" id="s06-oc"></span><div class="pg-grain"></div></div>
+<div class="device" id="s06-dev" style="left:110px;top:230px;width:920px;height:562px;"><div class="device-bar"><i></i><i></i><i></i></div><div style="position:absolute;left:0;right:0;top:44px;bottom:0;overflow:hidden"><div class="device-inner" id="s06-zoom"><video id="s06-v0" class="clip" src="assets/footage/approve.mp4" muted playsinline data-start="0.00" data-duration="99.00" data-media-start="9.60" data-track-index="2"></video></div></div></div>
+      <div class="lbl"><div class="eyebrow" id="s06-e">Scoped grant</div><div class="h-m" id="s06-h" style="margin-top:8px">A credential for one job.</div></div>
+      <div class="ringwrap neu" id="s06-ringw">
+        <svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#d6dce6"/><circle id="s06-arc" cx="50" cy="50" r="44" stroke="#4f46e5" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0"/></svg>
+        <div class="t mono" id="s06-t">5:00</div>
+      </div>
+      <div class="chips">
+        <span class="chip" id="s06-c1">1 job</span><span class="chip" id="s06-c2">1 obligation</span>
+        <span class="chip" id="s06-c3">max 1 execution</span><span class="chip" id="s06-c4">expires in 300 s</span>
+      </div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s06 ";
+  const V = 0.75;   // voice starts
+  const D = 5.248; // voice duration
+  const DUR = 7.698;
+  const root = document.getElementById("s06");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s06-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s06-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s06-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s06-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s06-dev",{opacity:0,y:40},{opacity:1,y:0,duration:.7,ease:"power3.out"},0.2);
+      tl.fromTo(S+"#s06-e",{opacity:0},{opacity:1,duration:.4},V);
+      tl.fromTo(S+"#s06-h",{opacity:0,y:20},{opacity:1,y:0,duration:.6},V+.6);
+      tl.fromTo(S+"#s06-ringw",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.8,ease:"expo.out"},V+.4);
+      tl.fromTo(S+"#s06-arc",{strokeDashoffset:0},{strokeDashoffset:.999,duration:D+0.4,ease:"none"},V+.8);
+      const clock={v:300};
+      tl.fromTo(clock,{v:300},{v:0,duration:D+0.4,ease:"none",onUpdate:()=>{const s=Math.ceil(clock.v);el("#s06-t").textContent=Math.floor(s/60)+":"+String(s%60).padStart(2,"0");}},V+.8);
+      tl.fromTo([S+"#s06-c1",S+"#s06-c2",S+"#s06-c3",S+"#s06-c4"],{opacity:0,y:30},{opacity:1,y:0,duration:.5,stagger:.55,ease:"back.out(1.6)"},V+1.2);
+    
+  window.__timelines["s06"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

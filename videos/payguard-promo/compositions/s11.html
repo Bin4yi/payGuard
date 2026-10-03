@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s11-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s11 { position: absolute; inset: 0; }
+  #s11-fade { position: absolute; inset: 0; }
+
+      #s11 .txt{position:absolute;left:130px;top:200px;width:820px}
+      #s11 .txt .h-l{line-height:1.12;margin-top:28px!important}
+      #s11 .g{position:absolute;left:1120px;top:170px;width:640px;height:640px;border-radius:50%;display:grid;place-items:center}
+      #s11 svg.ring{position:absolute;inset:70px;width:500px;height:500px;transform:rotate(-90deg)}
+      #s11 .ring circle{fill:none;stroke-width:16;stroke-linecap:round}
+      #s11 .num{font-weight:900;font-size:150px;letter-spacing:-.05em;color:#d92d20}
+      #s11 .cap{font-family:'JetBrains Mono',monospace;font-size:24px;color:#46526a;text-align:center;margin-top:-10px}
+      #s11 .th{position:absolute;left:50%;top:50%;width:6px;height:44px;margin-left:-3px;background:#0e1528;border-radius:3px;transform-origin:50% 0}
+      #s11 .rows{position:absolute;left:130px;top:690px;display:flex;flex-direction:column;gap:22px}
+      #s11 .rw{display:flex;align-items:center;gap:20px;font-size:38px;font-weight:700}
+      #s11 .rw .i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center}
+      #s11 .rw .i svg{width:32px;height:32px}
+    
+</style>
+<div id="s11" data-composition-id="s11" data-width="1920" data-height="1080" data-duration="10.28">
+  <div class="pg-scene" id="s11-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s11-oa"></span><span class="pg-orb b" id="s11-ob"></span><span class="pg-orb c" id="s11-oc"></span><div class="pg-grain"></div></div>
+
+      <div class="txt"><div class="eyebrow" id="s11-e">Laya pre-screen</div>
+        <div class="h-l" id="s11-h" style="margin-top:12px">Scores the notice before the agent acts.</div>
+        <div class="body" id="s11-b" style="margin-top:22px">“Does this text try to change who gets paid?”</div></div>
+      <div class="g neu" id="s11-g">
+        <svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#d6dce6"/><circle id="s11-arc" cx="50" cy="50" r="44" stroke="#d92d20" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+        <div style="text-align:center"><div class="num mono" id="s11-n">0.00</div><div class="cap">flags at 0.50</div></div>
+      </div>
+      <div class="rows">
+        <div class="rw" id="s11-r1"><span class="i" style="background:rgba(4,120,87,.14);color:#047857"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>Can send a payment to review</div>
+        <div class="rw" id="s11-r2"><span class="i" style="background:rgba(217,45,32,.14);color:#d92d20"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg></span>Can never approve one</div>
+      </div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s11 ";
+  const V = 0.75;   // voice starts
+  const D = 7.829; // voice duration
+  const DUR = 10.279;
+  const root = document.getElementById("s11");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s11-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s11-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s11-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s11-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s11-e",{opacity:0},{opacity:1,duration:.4},V);
+      tl.fromTo(S+"#s11-h",{opacity:0,y:30},{opacity:1,y:0,duration:.7,ease:"power3.out"},V+.3);
+      tl.fromTo(S+"#s11-b",{opacity:0},{opacity:1,duration:.5},V+1.5);
+      tl.fromTo(S+"#s11-g",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.8,ease:"expo.out"},V+.6);
+      tl.fromTo(S+"#s11-arc",{strokeDashoffset:1},{strokeDashoffset:.06,duration:1.4,ease:"power3.out"},V+2.6);
+      const sc={v:0};
+      tl.fromTo(sc,{v:0},{v:.94,duration:1.4,ease:"power3.out",onUpdate:()=>{el("#s11-n").textContent=sc.v.toFixed(2);}},V+2.6);
+      tl.fromTo(S+"#s11-r1",{opacity:0,x:-40},{opacity:1,x:0,duration:.5,ease:"power3.out"},V+4.7);
+      tl.fromTo(S+"#s11-r2",{opacity:0,x:-40},{opacity:1,x:0,duration:.5,ease:"power3.out"},V+6.4);
+    
+  window.__timelines["s11"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

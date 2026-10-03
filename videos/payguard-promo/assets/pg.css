@@ -1,0 +1,213 @@
+/* Shared PayGuard promo styles (linked from every scene; <link> is hoisted). */
+.pg-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #e6ebf2;
+  color: #0e1528;
+  font-family: "Montserrat", sans-serif;
+}
+.pg-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.pg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+.pg-orb.a {
+  width: 900px;
+  height: 900px;
+  left: -260px;
+  top: -300px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.75), transparent 68%);
+}
+.pg-orb.b {
+  width: 820px;
+  height: 820px;
+  right: -240px;
+  bottom: -320px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.6), transparent 68%);
+}
+.pg-orb.c {
+  width: 620px;
+  height: 620px;
+  left: 42%;
+  top: 55%;
+  background: radial-gradient(circle, rgba(240, 171, 252, 0.45), transparent 70%);
+}
+.pg-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: radial-gradient(rgba(14, 21, 40, 0.18) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+.pg-stage {
+  position: absolute;
+  inset: 0;
+  padding: 110px 130px;
+  box-sizing: border-box;
+}
+
+/* neumorphic */
+.neu {
+  background: #e6ebf2;
+  border-radius: 40px;
+  box-shadow: 18px 18px 40px #c3cbd8, -18px -18px 40px #ffffff;
+}
+.neu-in {
+  background: #e6ebf2;
+  border-radius: 28px;
+  box-shadow: inset 9px 9px 20px #c3cbd8, inset -9px -9px 20px #ffffff;
+}
+/* glass */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 40px;
+  box-shadow: 0 50px 110px -40px rgba(30, 41, 80, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.95);
+}
+
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4f46e5;
+}
+.h-xl {
+  font-weight: 900;
+  font-size: 132px;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  margin: 0;
+}
+.h-l {
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.h-m {
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.body {
+  font-size: 36px;
+  line-height: 1.4;
+  color: #46526a;
+  font-weight: 400;
+}
+.mono {
+  font-family: "JetBrains Mono", monospace;
+}
+.accent {
+  color: #4f46e5;
+}
+.red {
+  color: #d92d20;
+}
+.green {
+  color: #047857;
+}
+
+/* footage device window */
+.device {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 60px 120px -40px rgba(30, 41, 80, 0.55), 0 0 0 1px rgba(14, 21, 40, 0.06);
+  background: #e6ebf2;
+}
+.device-inner {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 50%;
+}
+.device video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.device-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 2;
+}
+.device-bar i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #c3cbd8;
+  display: block;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 30px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 28px;
+  border-radius: 999px;
+  background: #e6ebf2;
+  box-shadow: 9px 9px 20px #c3cbd8, -9px -9px 20px #ffffff;
+  color: #0e1528;
+}
+.chip.red {
+  color: #d92d20;
+}
+.pill-red {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: rgba(217, 45, 32, 0.12);
+  border: 2px solid rgba(217, 45, 32, 0.45);
+  color: #d92d20;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 28px;
+}
+.pill-green {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: rgba(4, 120, 87, 0.12);
+  border: 2px solid rgba(4, 120, 87, 0.45);
+  color: #047857;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 28px;
+}
+.credit {
+  position: absolute;
+  right: 60px;
+  bottom: 40px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 20px;
+  color: #46526a;
+}

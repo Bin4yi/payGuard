@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s03-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s03 { position: absolute; inset: 0; }
+  #s03-fade { position: absolute; inset: 0; }
+
+      #s03 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+      #s03 .mark{width:250px;height:250px;display:grid;place-items:center;border-radius:72px}
+      #s03 .mark svg{width:150px;height:150px}
+      #s03 .tick{stroke-dasharray:1;stroke-dashoffset:1}
+      #s03 h1{font-weight:900;font-size:180px;letter-spacing:-.055em;margin:56px 0 10px;line-height:1}
+      #s03 .tagline{font-weight:700;font-size:58px;letter-spacing:-.02em;color:#46526a}
+      #s03 .tagline b{color:#4f46e5}
+    
+</style>
+<div id="s03" data-composition-id="s03" data-width="1920" data-height="1080" data-duration="8.02">
+  <div class="pg-scene" id="s03-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s03-oa"></span><span class="pg-orb b" id="s03-ob"></span><span class="pg-orb c" id="s03-oc"></span><div class="pg-grain"></div></div>
+
+      <div class="wrap">
+        <div class="mark neu" id="s03-mark"><svg viewBox="0 0 64 64" class="s03-shield"><defs><linearGradient id="s03g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#0891b2"/></linearGradient></defs><path d="M32 4 8 13v17c0 15 10.3 26.6 24 30 13.7-3.4 24-15 24-30V13L32 4z" fill="url(#s03g)"/><path class="tick" pathLength="1" d="m21 32 8 8 15-16" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h1 id="s03-h">PayGuard</h1>
+        <div class="tagline"><span id="s03-a">The AI proposes.</span> <b id="s03-b">Only you approve.</b></div>
+      </div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s03 ";
+  const V = 0.75;   // voice starts
+  const D = 3.968; // voice duration
+  const DUR = 8.018;
+  const root = document.getElementById("s03");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s03-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s03-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s03-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s03-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s03-mark",{scale:.6,opacity:0},{scale:1,opacity:1,duration:1.0,ease:"expo.out"},V-.5);
+      tl.to(S+".tick",{strokeDashoffset:0,duration:.6,ease:"power2.out"},V+.3);
+      tl.fromTo(S+"#s03-h",{opacity:0,y:40,scale:1.06},{opacity:1,y:0,scale:1,duration:1.0,ease:"power3.out"},V+.1);
+      tl.fromTo(S+"#s03-a",{opacity:0,y:20},{opacity:1,y:0,duration:.5},V+1.6);
+      tl.fromTo(S+"#s03-b",{opacity:0,y:20},{opacity:1,y:0,duration:.5},V+2.7);
+    
+  window.__timelines["s03"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

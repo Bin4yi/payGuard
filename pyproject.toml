@@ -1,0 +1,34 @@
+[project]
+name = "payguard"
+version = "0.1.0"
+description = "PayGuard - an AP2-inspired Gemini rent-payment prototype with an enforced payment boundary."
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "cryptography>=43.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+]
+# Laya pre-screening through the free public Hugging Face demo Space.
+laya-hf = ["gradio_client>=1.0"]
+# Laya run on this machine (PyTorch + ~0.8 GB checkpoint on first use).
+laya-local = ["laya>=0.3.3"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["services*"]

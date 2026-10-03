@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s08-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s08 { position: absolute; inset: 0; }
+  #s08-fade { position: absolute; inset: 0; }
+
+      #s08 .grid{position:absolute;left:180px;top:360px;width:310px;height:310px}
+      #s08 .dot{position:absolute;width:42px;height:42px;border-radius:50%;background:#e6ebf2;box-shadow:6px 6px 12px #c3cbd8,-6px -6px 12px #fff}
+      #s08 .dot::after{content:"";position:absolute;inset:12px;border-radius:50%;background:#4f46e5}
+      #s08 .gw{position:absolute;left:800px;top:360px;width:310px;height:310px;display:grid;place-items:center;color:#4f46e5;border-radius:60px}
+      #s08 .gw svg{width:110px;height:110px}
+      #s08 .coin{position:absolute;left:1430px;top:405px;width:220px;height:220px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:110px;color:#047857}
+      #s08 .lab{position:absolute;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:28px;text-align:center;width:420px}
+      #s08 svg.lines{position:absolute;left:0;top:0;width:1920px;height:1080px}
+      #s08 svg.lines path{fill:none;stroke:#4f46e5;stroke-width:3;opacity:.45;stroke-dasharray:1;stroke-dashoffset:1}
+      #s08 .phaseB{position:absolute;inset:0;opacity:0}
+      #s08 .stamp{position:absolute;left:1300px;top:860px}
+    
+</style>
+<div id="s08" data-composition-id="s08" data-width="1920" data-height="1080" data-duration="10.09">
+  <div class="pg-scene" id="s08-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s08-oa"></span><span class="pg-orb b" id="s08-ob"></span><span class="pg-orb c" id="s08-oc"></span><div class="pg-grain"></div></div>
+
+      <div style="position:absolute;left:130px;top:110px"><div class="eyebrow" id="s08-e">Exactly once</div><div class="h-m" id="s08-h" style="margin-top:8px">Idempotency key + obligation lock.</div></div>
+      <div id="s08-phaseA">
+        <svg class="lines" viewBox="0 0 1920 1080">
+          <path id="s08-l1" pathLength="1" d="M500 420 C 650 420, 680 480, 800 500"/>
+          <path id="s08-l2" pathLength="1" d="M500 515 C 650 515, 700 515, 800 515"/>
+          <path id="s08-l3" pathLength="1" d="M500 610 C 650 610, 680 550, 800 530"/>
+          <path id="s08-l4" pathLength="1" d="M1110 515 L 1430 515"/>
+        </svg>
+        <div class="grid" id="s08-grid"><span class="dot" id="s08-d0" style="left:0px;top:0px"></span><span class="dot" id="s08-d1" style="left:64px;top:0px"></span><span class="dot" id="s08-d2" style="left:128px;top:0px"></span><span class="dot" id="s08-d3" style="left:192px;top:0px"></span><span class="dot" id="s08-d4" style="left:256px;top:0px"></span><span class="dot" id="s08-d5" style="left:0px;top:64px"></span><span class="dot" id="s08-d6" style="left:64px;top:64px"></span><span class="dot" id="s08-d7" style="left:128px;top:64px"></span><span class="dot" id="s08-d8" style="left:192px;top:64px"></span><span class="dot" id="s08-d9" style="left:256px;top:64px"></span><span class="dot" id="s08-d10" style="left:0px;top:128px"></span><span class="dot" id="s08-d11" style="left:64px;top:128px"></span><span class="dot" id="s08-d12" style="left:128px;top:128px"></span><span class="dot" id="s08-d13" style="left:192px;top:128px"></span><span class="dot" id="s08-d14" style="left:256px;top:128px"></span><span class="dot" id="s08-d15" style="left:0px;top:192px"></span><span class="dot" id="s08-d16" style="left:64px;top:192px"></span><span class="dot" id="s08-d17" style="left:128px;top:192px"></span><span class="dot" id="s08-d18" style="left:192px;top:192px"></span><span class="dot" id="s08-d19" style="left:256px;top:192px"></span><span class="dot" id="s08-d20" style="left:0px;top:256px"></span><span class="dot" id="s08-d21" style="left:64px;top:256px"></span><span class="dot" id="s08-d22" style="left:128px;top:256px"></span><span class="dot" id="s08-d23" style="left:192px;top:256px"></span><span class="dot" id="s08-d24" style="left:256px;top:256px"></span></div>
+        <div class="lab" style="left:125px;top:720px" id="s08-la">25 identical requests<br>at the same moment</div>
+        <div class="gw neu" id="s08-gw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6M4 11h16"/></svg></div>
+        <div class="coin neu" id="s08-coin">1</div>
+        <div class="lab" style="left:1330px;top:720px" id="s08-lc">transfer. ever.</div>
+      </div>
+      <div class="phaseB" id="s08-phaseB">
+        <div class="device" id="s08-dev" style="left:360px;top:200px;width:1200px;height:719px;"><div class="device-bar"><i></i><i></i><i></i></div><div style="position:absolute;left:0;right:0;top:44px;bottom:0;overflow:hidden"><div class="device-inner" id="s08-zoom"><video id="s08-v0" class="clip" src="assets/footage/pay-receipts-replay.mp4" muted playsinline data-start="0.00" data-duration="99.00" data-media-start="14.60" data-track-index="2"></video></div></div></div>
+        <div class="stamp pill-green" id="s08-stamp">same payment ID · never a second one</div>
+      </div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s08 ";
+  const V = 0.75;   // voice starts
+  const D = 7.637; // voice duration
+  const DUR = 10.087;
+  const root = document.getElementById("s08");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s08-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s08-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s08-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s08-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s08-e",{opacity:0},{opacity:1,duration:.4},V);
+      tl.fromTo(S+"#s08-h",{opacity:0,y:20},{opacity:1,y:0,duration:.6},V+.4);
+      tl.fromTo(S+".dot",{opacity:0,scale:.2},{opacity:1,scale:1,duration:.4,stagger:{each:.02,from:"random"},ease:"back.out(2)"},V+0);
+      tl.fromTo(S+"#s08-la",{opacity:0},{opacity:1,duration:.5},V+.3);
+      tl.fromTo(S+"#s08-gw",{opacity:0,scale:.7},{opacity:1,scale:1,duration:.7,ease:"expo.out"},V+.4);
+      tl.to([S+"#s08-l1",S+"#s08-l2",S+"#s08-l3"],{strokeDashoffset:0,duration:.7,stagger:.1,ease:"power2.out"},V+.9);
+      tl.to(S+".dot",{x:(i)=>620-(i%5)*64,y:(i)=>155-Math.floor(i/5)*64,scale:.3,opacity:0,duration:.8,stagger:.015,ease:"power3.in"},V+1.6);
+      tl.to(S+"#s08-l4",{strokeDashoffset:0,duration:.5,ease:"power2.out"},V+2.4);
+      tl.fromTo(S+"#s08-coin",{opacity:0,scale:.4},{opacity:1,scale:1,duration:.7,ease:"back.out(2)"},V+2.8);
+      tl.fromTo(S+"#s08-lc",{opacity:0},{opacity:1,duration:.4},V+3.1);
+      tl.to(S+"#s08-phaseA",{opacity:0,filter:"blur(12px)",duration:.6,ease:"sine.inOut"},V+4.0);
+      tl.to(S+"#s08-phaseB",{opacity:1,duration:.6,ease:"sine.inOut"},V+4.0);
+      tl.fromTo(S+"#s08-zoom",{scale:1.2,x:-60,y:80},{scale:1.45,x:180,y:150,duration:4,ease:"power1.inOut"},V+4.0);
+      tl.fromTo(S+"#s08-stamp",{opacity:0,y:20},{opacity:1,y:0,duration:.5,ease:"back.out(1.6)"},V+6.0);
+    
+  window.__timelines["s08"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

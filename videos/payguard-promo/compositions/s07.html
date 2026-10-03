@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s07-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s07 { position: absolute; inset: 0; }
+  #s07-fade { position: absolute; inset: 0; }
+
+      #s07 .colx{position:absolute;top:300px;width:620px;padding:34px 36px}
+      #s07 .a{left:110px} #s07 .b{left:1190px}
+      #s07 .colx h4{margin:0 0 18px;font-size:30px;font-weight:800}
+      #s07 .fr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 4px;border-bottom:2px solid rgba(14,21,40,.07);font-family:'JetBrains Mono',monospace;font-size:26px}
+      #s07 .fr:last-child{border-bottom:none}
+      #s07 .fn{color:#46526a}
+      #s07 .ok{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(4,120,87,.14);color:#047857;flex:none}
+      #s07 .ok svg{width:24px;height:24px}
+      #s07 .val{margin-left:auto}
+      #s07 .gw{position:absolute;left:800px;top:380px;width:320px;height:320px;display:grid;place-items:center;text-align:center;color:#047857}
+      #s07 .gw svg{width:110px;height:110px}
+      #s07 .gw div{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:26px;margin-top:-30px;color:#0e1528}
+      #s07 .refuse{position:absolute;left:560px;top:760px;width:800px;text-align:center}
+      #s07 .refuse .h{font-weight:900;font-size:92px;letter-spacing:-.04em;color:#d92d20}
+    
+</style>
+<div id="s07" data-composition-id="s07" data-width="1920" data-height="1080" data-duration="11.32">
+  <div class="pg-scene" id="s07-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s07-oa"></span><span class="pg-orb b" id="s07-ob"></span><span class="pg-orb c" id="s07-oc"></span><div class="pg-grain"></div></div>
+
+      <div style="position:absolute;left:110px;top:110px"><div class="eyebrow" id="s07-e">The gateway</div><div class="h-m" id="s07-h" style="margin-top:8px">The only code that can move money.</div></div>
+      <div class="colx glass a" id="s07-a"><h4>You approved <span class="mono" style="font-size:22px;color:#4f46e5">signed</span></h4><div class="fr"><span class="fn">debit account</span><span>acct-tenant</span></div><div class="fr"><span class="fn">destination</span><span>landlord</span></div><div class="fr"><span class="fn">version</span><span>1</span></div><div class="fr"><span class="fn">amount</span><span>LKR 50,000.00</span></div><div class="fr"><span class="fn">currency</span><span>LKR</span></div><div class="fr"><span class="fn">reference</span><span>RENT-2026-09</span></div></div>
+      <div class="gw neu" id="s07-gw"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6M4 11h16"/></svg><div>exact match?</div></div>
+      <div class="colx glass b" id="s07-b"><h4>The agent asked for</h4><div class="fr" id="s07-r0"><span class="fn">debit account</span><span class="val" id="s07-v0">acct-tenant</span><span class="ok" id="s07-ok0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div><div class="fr" id="s07-r1"><span class="fn">destination</span><span class="val" id="s07-v1">landlord</span><span class="ok" id="s07-ok1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div><div class="fr" id="s07-r2"><span class="fn">version</span><span class="val" id="s07-v2">1</span><span class="ok" id="s07-ok2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div><div class="fr" id="s07-r3"><span class="fn">amount</span><span class="val" id="s07-v3">LKR 50,000.00</span><span class="ok" id="s07-ok3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div><div class="fr" id="s07-r4"><span class="fn">currency</span><span class="val" id="s07-v4">LKR</span><span class="ok" id="s07-ok4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div><div class="fr" id="s07-r5"><span class="fn">reference</span><span class="val" id="s07-v5">RENT-2026-09</span><span class="ok" id="s07-ok5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span></div></div>
+      <div class="refuse" id="s07-ref"><div class="h">REFUSED</div><span class="pill-red">DESTINATION_CHANGED · no money moved</span></div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s07 ";
+  const V = 0.75;   // voice starts
+  const D = 8.875; // voice duration
+  const DUR = 11.325;
+  const root = document.getElementById("s07");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s07-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s07-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s07-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s07-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s07-e",{opacity:0},{opacity:1,duration:.4},V);
+      tl.fromTo(S+"#s07-h",{opacity:0,y:20},{opacity:1,y:0,duration:.6},V+1.8);
+      tl.fromTo(S+"#s07-b",{opacity:0,x:80},{opacity:1,x:0,duration:.8,ease:"power3.out"},V+.4);
+      tl.fromTo(S+"#s07-gw",{opacity:0,scale:.7},{opacity:1,scale:1,duration:.8,ease:"expo.out"},V+1.0);
+      tl.fromTo(S+"#s07-a",{opacity:0,x:-80},{opacity:1,x:0,duration:.8,ease:"power3.out"},V+3.3);
+      tl.fromTo([S+"#s07-ok0",S+"#s07-ok1",S+"#s07-ok2",S+"#s07-ok3",S+"#s07-ok4",S+"#s07-ok5"],{opacity:0,scale:.3},{opacity:1,scale:1,duration:.3,stagger:.32,ease:"back.out(2.4)"},V+3.9);
+      tl.set(S+"#s07-v1",{textContent:"acct-attacker-99"},V+6.4);
+      tl.to(S+"#s07-v1",{color:"#d92d20",duration:.2},V+6.4);
+      tl.to(S+"#s07-r1",{backgroundColor:"rgba(217,45,32,.10)",duration:.3},V+6.4);
+      tl.set(S+"#s07-ok1",{innerHTML:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',backgroundColor:"rgba(217,45,32,.14)",color:"#d92d20"},V+6.4);
+      tl.to(S+"#s07-gw",{color:"#d92d20",duration:.3},V+6.6);
+      tl.fromTo(S+"#s07-ref",{opacity:0,scale:1.4},{opacity:1,scale:1,duration:.45,ease:"power4.out"},V+7.3);
+    
+  window.__timelines["s07"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

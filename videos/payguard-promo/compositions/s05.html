@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s05-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s05 { position: absolute; inset: 0; }
+  #s05-fade { position: absolute; inset: 0; }
+
+      #s05 .side{position:absolute;left:1240px;top:150px;width:560px}
+      #s05 .json{padding:34px 38px;font-size:24px;line-height:1.7;margin-top:26px}
+      #s05 .json .k{color:#4f46e5}
+      #s05 .row{display:flex;align-items:center;gap:18px;margin-top:22px;padding:20px 26px;font-size:24px}
+      #s05 .seal{display:flex;align-items:center;gap:22px;margin-top:26px;padding:24px 30px}
+      #s05 .seal .ic{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:#4f46e5;color:#fff}
+      #s05 .seal .ic svg{width:40px;height:40px}
+    
+</style>
+<div id="s05" data-composition-id="s05" data-width="1920" data-height="1080" data-duration="15.72">
+  <div class="pg-scene" id="s05-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s05-oa"></span><span class="pg-orb b" id="s05-ob"></span><span class="pg-orb c" id="s05-oc"></span><div class="pg-grain"></div></div>
+<div class="device" id="s05-dev" style="left:110px;top:180px;width:1060px;height:640px;"><div class="device-bar"><i></i><i></i><i></i></div><div style="position:absolute;left:0;right:0;top:44px;bottom:0;overflow:hidden"><div class="device-inner" id="s05-zoom"><video id="s05-v0" class="clip" src="assets/footage/approve.mp4" muted playsinline data-start="0.00" data-duration="99.00" data-media-start="3.40" data-track-index="2"></video></div></div></div>
+      <div class="side">
+        <div class="eyebrow" id="s05-e">Signed mandate</div>
+        <div class="h-m" id="s05-h" style="font-size:56px;margin-top:10px">This amount. This account. Once.</div>
+        <div class="json glass mono" id="s05-json">
+          <div id="s05-j1"><span class="k">"amount_minor"</span>: 5000000,</div>
+          <div id="s05-j2"><span class="k">"currency"</span>: "LKR",</div>
+          <div id="s05-j3"><span class="k">"destination"</span>: "landlord · v1",</div>
+          <div id="s05-j4"><span class="k">"max_executions"</span>: 1</div>
+        </div>
+        <div class="row neu-in mono" id="s05-hash"><b>SHA-256</b><span style="color:#46526a">9f2c…e81a</span></div>
+        <div class="seal neu" id="s05-seal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></div><div><div class="mono" style="font-weight:700;font-size:28px">RSA-PSS · PS256</div><div style="font-size:24px;color:#46526a">signed by the authority key</div></div></div>
+      </div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s05 ";
+  const V = 0.75;   // voice starts
+  const D = 13.269; // voice duration
+  const DUR = 15.719;
+  const root = document.getElementById("s05");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s05-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s05-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s05-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s05-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s05-dev",{opacity:0,y:50},{opacity:1,y:0,duration:.8,ease:"power3.out"},0.2);
+      tl.fromTo(S+"#s05-zoom",{scale:1,x:0,y:0},{scale:1.35,x:120,y:120,duration:3.2,ease:"power2.inOut"},V+.5);
+      tl.to(S+"#s05-zoom",{scale:1,x:0,y:0,duration:1.6,ease:"power2.inOut"},V+4.4);
+      tl.fromTo(S+"#s05-e",{opacity:0},{opacity:1,duration:.4},V+.4);
+      tl.fromTo(S+"#s05-h",{opacity:0,y:20},{opacity:1,y:0,duration:.6,ease:"power3.out"},V+2.0);
+      tl.fromTo(S+"#s05-json",{opacity:0,y:30},{opacity:1,y:0,duration:.6,ease:"power3.out"},V+4.8);
+      tl.fromTo([S+"#s05-j1",S+"#s05-j2",S+"#s05-j3",S+"#s05-j4"],{opacity:0,x:-16},{opacity:1,x:0,duration:.35,stagger:.25},V+5.1);
+      tl.fromTo(S+"#s05-hash",{opacity:0,y:20},{opacity:1,y:0,duration:.5,ease:"power2.out"},V+8.4);
+      tl.fromTo(S+"#s05-seal",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.7,ease:"back.out(1.8)"},V+6.6);
+    
+  window.__timelines["s05"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

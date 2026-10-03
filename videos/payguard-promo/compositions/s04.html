@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s04-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s04 { position: absolute; inset: 0; }
+  #s04-fade { position: absolute; inset: 0; }
+
+      #s04 h2{position:absolute;left:130px;top:100px}
+      #s04 .col{position:absolute;top:300px;width:660px;height:600px;padding:56px}
+      #s04 .l{left:130px} #s04 .r{left:1130px}
+      #s04 .ic{width:96px;height:96px;display:grid;place-items:center;border-radius:28px;color:#4f46e5}
+      #s04 .ic svg{width:54px;height:54px}
+      #s04 .col h3{font-weight:900;font-size:52px;margin:30px 0 18px;letter-spacing:-.02em}
+      #s04 .col li{font-size:32px;color:#46526a;margin:12px 0;list-style:none}
+      #s04 .col ul{padding:0;margin:0}
+      #s04 .wall{position:absolute;left:880px;top:290px;width:160px;height:620px;display:grid;place-items:center;border-radius:44px;color:#d92d20}
+      #s04 .wall svg{width:70px;height:70px}
+      #s04 .no{display:flex;gap:16px;margin-top:30px}
+      #s04 .arrow{position:absolute;left:640px;top:560px;width:640px;height:80px}
+    
+</style>
+<div id="s04" data-composition-id="s04" data-width="1920" data-height="1080" data-duration="9.66">
+  <div class="pg-scene" id="s04-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s04-oa"></span><span class="pg-orb b" id="s04-ob"></span><span class="pg-orb c" id="s04-oc"></span><div class="pg-grain"></div></div>
+
+      <div class="eyebrow" id="s04-e" style="position:absolute;left:130px;top:150px">The breakthrough</div>
+      <div class="h-m" id="s04-h" style="position:absolute;left:130px;top:195px">Separate what thinks from what moves money.</div>
+      <div class="col glass l" id="s04-l">
+        <div class="ic neu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9.5 16h5"/></svg></div>
+        <h3>The agent thinks</h3>
+        <ul><li>Reads the notice</li><li>Reasons about it</li><li>Suggests a payment</li></ul>
+        <div class="no"><span class="chip red" id="s04-n1">no keys</span><span class="chip red" id="s04-n2">can't pay</span></div>
+      </div>
+      <div class="wall neu" id="s04-wall"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+      <div class="col glass r" id="s04-r">
+        <div class="ic neu" style="color:#047857"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6M4 11h16"/></svg></div>
+        <h3>The gateway decides</h3>
+        <ul><li>The only path to money</li><li>No opinions, no prompts</li><li>Checks your signed approval</li></ul>
+      </div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s04 ";
+  const V = 0.75;   // voice starts
+  const D = 7.211; // voice duration
+  const DUR = 9.661;
+  const root = document.getElementById("s04");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s04-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s04-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s04-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s04-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s04-e",{opacity:0},{opacity:1,duration:.4},V);
+      tl.fromTo(S+"#s04-h",{opacity:0,y:24},{opacity:1,y:0,duration:.6,ease:"power3.out"},V+.2);
+      tl.fromTo(S+"#s04-l",{opacity:0,x:-80},{opacity:1,x:0,duration:.8,ease:"power3.out"},V+.9);
+      tl.fromTo(S+"#s04-r",{opacity:0,x:80},{opacity:1,x:0,duration:.8,ease:"power3.out"},V+2.0);
+      tl.fromTo(S+"#s04-wall",{opacity:0,scaleY:.3},{opacity:1,scaleY:1,duration:.8,ease:"expo.out"},V+3.0);
+      tl.fromTo([S+"#s04-n1",S+"#s04-n2"],{opacity:0,scale:.6},{opacity:1,scale:1,duration:.5,stagger:.5,ease:"back.out(2)"},V+5.2);
+    
+  window.__timelines["s04"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

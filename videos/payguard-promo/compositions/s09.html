@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s09-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s09 { position: absolute; inset: 0; }
+  #s09-fade { position: absolute; inset: 0; }
+
+      #s09 .blk{position:absolute;top:250px;width:340px;height:250px;padding:28px 30px;border-radius:32px}
+      #s09 .blk .n{color:#4f46e5;font-weight:700;font-size:24px}
+      #s09 .blk .t{font-weight:800;font-size:32px;margin:12px 0}
+      #s09 .blk .h{font-size:22px;color:#46526a}
+      #s09 .blk .sig{display:flex;align-items:center;gap:10px;margin-top:16px;color:#047857;font-weight:700;font-size:24px}
+      #s09 .blk .sig svg{width:28px;height:28px}
+      #s09 svg.links{position:absolute;left:0;top:0;width:1920px;height:1080px}
+      #s09 svg.links path{fill:none;stroke:#4f46e5;stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+      #s09 .lbl{position:absolute;left:130px;top:100px}
+      #s09 .verified{position:absolute;left:1300px;top:900px}
+    
+</style>
+<div id="s09" data-composition-id="s09" data-width="1920" data-height="1080" data-duration="8.21">
+  <div class="pg-scene" id="s09-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s09-oa"></span><span class="pg-orb b" id="s09-ob"></span><span class="pg-orb c" id="s09-oc"></span><div class="pg-grain"></div></div>
+
+      <div class="lbl"><div class="eyebrow" id="s09-e">Signed receipts</div><div class="h-m" id="s09-h" style="margin-top:8px">A tamper-evident chain.</div></div>
+      <svg class="links" viewBox="0 0 1920 1080"><path id="s09-p0" pathLength="1" d="M470 375 L560 375"/><path id="s09-p1" pathLength="1" d="M900 375 L990 375"/><path id="s09-p2" pathLength="1" d="M1330 375 L1420 375"/></svg>
+      <div class="blk neu" id="s09-b0" style="left:130px"><div class="mono n">#1</div><div class="t">approval signed</div><div class="mono h">prev 0000…</div><div class="sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span>signed</span></div></div><div class="blk neu" id="s09-b1" style="left:560px"><div class="mono n">#2</div><div class="t">grant activated</div><div class="mono h">prev 7a3f…</div><div class="sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span>signed</span></div></div><div class="blk neu" id="s09-b2" style="left:990px"><div class="mono n">#3</div><div class="t">payment committed</div><div class="mono h">prev c19e…</div><div class="sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span>signed</span></div></div><div class="blk neu" id="s09-b3" style="left:1420px"><div class="mono n">#4</div><div class="t">receipt exported</div><div class="mono h">prev 4b07…</div><div class="sig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span>signed</span></div></div>
+      <div class="device" id="s09-dev" style="left:430px;top:560px;width:820px;height:505px;"><div class="device-bar"><i></i><i></i><i></i></div><div style="position:absolute;left:0;right:0;top:44px;bottom:0;overflow:hidden"><div class="device-inner" id="s09-zoom"><video id="s09-v0" class="clip" src="assets/footage/pay-receipts-replay.mp4" muted playsinline data-start="0.00" data-duration="99.00" data-media-start="13.00" data-track-index="2" data-playback-rate="1.6"></video></div></div></div>
+      <div class="verified pill-green" id="s09-ver">verified with your own trusted keys</div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s09 ";
+  const V = 0.75;   // voice starts
+  const D = 5.760; // voice duration
+  const DUR = 8.210;
+  const root = document.getElementById("s09");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s09-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s09-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s09-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s09-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s09-e",{opacity:0},{opacity:1,duration:.4},V);
+      tl.fromTo(S+"#s09-h",{opacity:0,y:20},{opacity:1,y:0,duration:.6},V+.5);
+      for(let i=0;i<4;i++){tl.fromTo(S+"#s09-b"+i,{opacity:0,y:40},{opacity:1,y:0,duration:.5,ease:"power3.out"},V+.2+i*.5); if(i<3) tl.to(S+"#s09-p"+i,{strokeDashoffset:0,duration:.35,ease:"power2.out"},V+.55+i*.5);}
+      tl.fromTo(S+"#s09-dev",{opacity:0,y:60},{opacity:1,y:0,duration:.8,ease:"power3.out"},V+2.3);
+      tl.fromTo(S+"#s09-zoom",{scale:1},{scale:1.25,y:-60,duration:4,ease:"power1.inOut"},V+2.6);
+      tl.fromTo(S+"#s09-ver",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.5,ease:"back.out(1.8)"},V+3.8);
+    
+  window.__timelines["s09"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>

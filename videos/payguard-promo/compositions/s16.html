@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8" /></head>
+<body>
+<template id="s16-template">
+<link rel="stylesheet" href="assets/pg.css" />
+<style>
+  #s16 { position: absolute; inset: 0; }
+  #s16-fade { position: absolute; inset: 0; }
+
+      #s16 .tiles{position:absolute;left:130px;top:330px;display:flex;gap:40px}
+      #s16 .tile{width:480px;height:400px;padding:52px;border-radius:44px;display:flex;flex-direction:column;justify-content:flex-end}
+      #s16 .tile .v{font-weight:900;font-size:150px;letter-spacing:-.05em;line-height:1}
+      #s16 .tile .l{font-size:34px;color:#46526a;margin-top:12px}
+      #s16 .term{position:absolute;left:130px;top:800px;padding:24px 34px;font-size:28px}
+    
+</style>
+<div id="s16" data-composition-id="s16" data-width="1920" data-height="1080" data-duration="7.80">
+  <div class="pg-scene" id="s16-fade">
+    <div class="pg-bg"><span class="pg-orb a" id="s16-oa"></span><span class="pg-orb b" id="s16-ob"></span><span class="pg-orb c" id="s16-oc"></span><div class="pg-grain"></div></div>
+
+      <div style="position:absolute;left:130px;top:150px"><div class="eyebrow" id="s16-e">Engineering</div><div class="h-m" id="s16-h" style="margin-top:8px">Everything in this film runs in the app.</div></div>
+      <div class="tiles">
+        <div class="tile neu" id="s16-t1"><div class="v accent mono" id="s16-n">0</div><div class="l">automated tests</div></div>
+        <div class="tile neu" id="s16-t2"><div class="v mono">1</div><div class="l">container: web + API</div></div>
+        <div class="tile neu" id="s16-t3"><div class="v" style="font-size:80px">Cloud Run</div><div class="l">ready to deploy</div></div>
+      </div>
+      <div class="term glass mono" id="s16-term"><span style="color:#46526a">$ pytest -q</span>  <span class="green">216 passed</span></div>
+    
+  </div>
+</div>
+<script>
+(function () {
+  const S = "#s16 ";
+  const V = 0.75;   // voice starts
+  const D = 4.352; // voice duration
+  const DUR = 7.802;
+  const root = document.getElementById("s16");
+  const el = (q) => root.querySelector(q);
+  const tl = gsap.timeline({ paused: true });
+  // blur crossfade in over the previous scene
+  tl.fromTo(S + "#s16-fade", { opacity: 0, filter: "blur(18px)", scale: 1.035 },
+    { opacity: 1, filter: "blur(0px)", scale: 1, duration: 0.7, ease: "sine.inOut" }, 0);
+  // ambient orb drift
+  tl.fromTo(S + "#s16-oa", { x: 0, y: 0 }, { x: 120, y: 60, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s16-ob", { x: 0, y: 0 }, { x: -110, y: -50, duration: DUR, ease: "sine.inOut" }, 0);
+  tl.fromTo(S + "#s16-oc", { scale: 0.9 }, { scale: 1.15, duration: DUR, ease: "sine.inOut" }, 0);
+
+      tl.fromTo(S+"#s16-e",{opacity:0},{opacity:1,duration:.4},V-.3);
+      tl.fromTo(S+"#s16-h",{opacity:0,y:20},{opacity:1,y:0,duration:.6},V+.2);
+      tl.fromTo([S+"#s16-t1",S+"#s16-t2",S+"#s16-t3"],{opacity:0,y:60},{opacity:1,y:0,duration:.7,stagger:.5,ease:"power3.out"},V);
+      const n={v:0};
+      tl.fromTo(n,{v:0},{v:216,duration:1.6,ease:"power2.out",onUpdate:()=>{el("#s16-n").textContent=Math.round(n.v);}},V+.2);
+      tl.fromTo(S+"#s16-term",{opacity:0,y:20},{opacity:1,y:0,duration:.5},V+2.6);
+    
+  window.__timelines["s16"] = tl;
+})();
+</script>
+</template>
+</body>
+</html>
